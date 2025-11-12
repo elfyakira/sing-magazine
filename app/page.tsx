@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import NoticeBar from '@/components/NoticeBar'
+import UpdatesList from '@/components/UpdatesList'
+import ProfileGrid from '@/components/ProfileGrid'
+import { Notice, Update, Profile } from '@/types/feature'
 
 export default function Home() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sing-magazine.jp'
@@ -104,6 +108,61 @@ export default function Home() {
     ],
   }
 
+  // お知らせバナーデータ
+  const noticeData: Notice = {
+    date: '2023年11月10日',
+    oldName: '覚悟の瞬間',
+    newName: '私のカクゴ'
+  }
+
+  // 更新情報データ
+  const updatesData: Update[] = [
+    {
+      date: '2025.10.01',
+      names: ['衆議院議員 高市早苗']
+    },
+    {
+      date: '2025.09.01',
+      names: ['静岡県知事 鈴木康友']
+    },
+    {
+      date: '2025.08.01',
+      names: ['福井県知事 杉本 達治']
+    },
+    {
+      date: '2025.06.01',
+      names: ['野球解説者 山本昌']
+    }
+  ]
+
+  // プロフィールデータ
+  const profilesData: Profile[] = [
+    {
+      name: '総合格闘家',
+      title: '',
+    },
+    {
+      name: '小笠貴夫',
+      title: '医療法人社団オーエフシー 理事長、おざさ医院 院長',
+    },
+    {
+      name: '中田宏',
+      title: '衆議院議員',
+    },
+    {
+      name: '木嶋真優',
+      title: 'ヴァイオリニスト',
+    },
+    {
+      name: '佐野俊二',
+      title: '岡山大学学術部 心臓血管外科長',
+    },
+    {
+      name: 'Daichi',
+      title: 'ヒューマンビートボクサー',
+    }
+  ]
+
   // サンプルデータ（後で実際のデータに置き換え）
   const featuredInterviews = [
     {
@@ -136,106 +195,166 @@ export default function Home() {
     <>
       <StructuredData data={jsonLd} />
 
-      {/* ヒーローセクション */}
-      <section className="bg-bg-hero py-[60px] pb-[50px] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
-              東海の経営者・挑戦者を取材する
+      {/* ヒーローセクション - 動画背景 */}
+      <section className="relative h-screen min-h-[600px] overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/ui/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center text-white px-8">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              想いでつながる、未来を創る
             </h1>
-            <p className="text-xl md:text-2xl text-text-secondary mb-6">
-              ビジネスマッチングメディア
-            </p>
-            <p className="text-base text-text-primary max-w-3xl mx-auto leading-relaxed">
-              愛知・岐阜・三重の企業経営者や専門家への取材を通して、<br className="hidden md:block" />
-              挑戦する人のリアルを伝える地域密着型ビジネス雑誌です。
+            <p className="text-xl md:text-2xl">
+              東海の経営者・挑戦者を取材するビジネスマッチングメディア
             </p>
           </div>
         </div>
       </section>
 
-      {/* メインコンテンツ */}
-      <div className="max-w-[1200px] mx-auto px-8 py-[60px] md:py-10">
-
-        {/* 特徴セクション */}
-        <section className="mb-[60px] md:mb-10">
-          <h2 className="text-base font-bold text-text-primary mb-[25px]">
-            月刊Singの特徴
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-8 bg-white border border-border-card rounded-sm transition-all duration-300 hover:-translate-y-[5px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:border-primary-green">
-              <h3 className="text-[18px] font-bold text-text-primary mb-3">経営者取材</h3>
-              <p className="text-sm text-text-primary leading-relaxed">
-                紆余曲折、挑戦、想いを伝える深い取材。経営者の人生と事業にかける思いをお届けします。
-              </p>
+      {/* アバウトセクション */}
+      <section className="bg-[#f0f4f8] py-20 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div>
+              <div className="mb-8">
+                <div className="text-6xl md:text-8xl font-black text-black mb-4">
+                  MOO
+                </div>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+                想いがあるから、<br />
+                出会える。
+              </h2>
             </div>
-            <div className="p-8 bg-white border border-border-card rounded-sm transition-all duration-300 hover:-translate-y-[5px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:border-primary-green">
-              <h3 className="text-[18px] font-bold text-text-primary mb-3">ビジネスマッチング</h3>
-              <p className="text-sm text-text-primary leading-relaxed">
-                企業同士をつなぎ、地域経済を活性化。取材をきっかけに新しいビジネスが生まれています。
+            <div className="space-y-6 text-black">
+              <p className="text-base leading-relaxed">
+                ビジネスの原点は、いつの時代も「人」です。<br />
+                どんなに時代が変わっても、人の想いや情熱が<br />
+                企業を動かし、未来をつくっていく。
               </p>
-            </div>
-            <div className="p-8 bg-white border border-border-card rounded-sm transition-all duration-300 hover:-translate-y-[5px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:border-primary-green">
-              <h3 className="text-[18px] font-bold text-text-primary mb-3">地域交流</h3>
-              <p className="text-sm text-text-primary leading-relaxed">
-                出会いの場を創出し、共に成長する。読者と経営者、企業同士をつなぐプラットフォームです。
+              <p className="text-base leading-relaxed">
+                私たちは、そんな経営者やビジネスリーダーの<br />
+                声を届け、共感と信頼が交わる場所をつくりた<br />
+                いと考えています。
+              </p>
+              <p className="text-base leading-relaxed">
+                月刊Singは、"出会い"の先にある"信頼"を大<br />
+                切にし、人と企業、地域と未来をつなげるメデ<br />
+                ィアでありたいと願っています。
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 注目の取材記事 */}
-        <section className="mb-[60px] md:mb-10">
-          <h2 className="text-base font-bold text-text-primary mb-[25px]">
-            注目の取材記事
-          </h2>
-          <div className="grid grid-cols-3 gap-6 lg:grid-cols-2 md:grid-cols-1">
-            {featuredInterviews.map((interview) => (
+      {/* フィーチャーセクション */}
+      <section className="bg-white py-20">
+        <div className="max-w-[1400px] mx-auto px-8">
+          {/* お知らせバナー */}
+          <NoticeBar notice={noticeData} />
+
+          {/* 3カラムレイアウト */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* 左カラム：更新情報 */}
+            <div className="lg:col-span-1">
+              <UpdatesList updates={updatesData} />
+            </div>
+
+            {/* 中央カラム：私のカクゴ一覧 */}
+            <div className="lg:col-span-1">
+              <ProfileGrid
+                profiles={profilesData}
+                title="私のカクゴ一覧"
+                layout="list"
+              />
+            </div>
+
+            {/* 右カラム：動画プレーヤー */}
+            <div className="lg:col-span-1">
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-black mb-1">注目動画</h2>
+                <div className="w-16 h-1 bg-black"></div>
+              </div>
+              <div className="bg-gray-100 rounded-sm p-4 sticky top-8">
+                <div className="aspect-video bg-gray-300 rounded-sm flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-4xl mb-2">▶</div>
+                    <p className="text-sm text-gray-600">動画プレーヤー</p>
+                    <p className="text-xs text-gray-500 mt-2">私のカクゴ 紹介動画</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* インタビューセクション */}
+      <section className="bg-[#f8f8f8] py-20">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-black mb-2">Interview</h2>
+            <p className="text-gray-600">挑戦者たちの声</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredInterviews.map((interview, index) => (
               <Link
                 key={interview.id}
                 href={`/interviews/${interview.id}`}
-                className="flex flex-col bg-white border border-border-card rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-[5px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:border-primary-green"
+                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="w-full aspect-square bg-bg-gray-light overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-bg-gray-light to-bg-gray flex items-center justify-center">
-                    <span className="text-text-light text-sm">画像準備中</span>
+                <div className="relative">
+                  <div className="w-full aspect-square bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                    <span className="text-blue-600 text-sm">Interview {String(index + 7).padStart(2, '0')}</span>
+                  </div>
+                  <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 text-xs font-bold rounded">
+                    Interview {String(index + 7).padStart(2, '0')}
                   </div>
                 </div>
-                <div className="p-[18px] flex-1 flex flex-col">
-                  <time className="block text-[11px] text-text-date mb-2 font-medium">
-                    {interview.date}
-                  </time>
-                  <p className="text-xs text-text-light mb-1.5">{interview.category}</p>
-                  <h3 className="text-[15px] font-bold text-text-primary mb-2.5">
+                <div className="p-4">
+                  <p className="text-xs text-gray-500 mb-2">業種：{interview.category}</p>
+                  <h3 className="font-bold text-black text-sm mb-2 line-clamp-2">
                     {interview.title}
                   </h3>
-                  <p className="text-[13px] text-[#555555] leading-relaxed line-clamp-3">
+                  <p className="text-xs text-gray-600 line-clamp-2 mb-3">
                     {interview.description}
                   </p>
+                  <div className="text-primary-green text-xs font-bold">
+                    Read more →
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTAセクション */}
-        <section className="text-center py-12 bg-bg-gray-lightest rounded-sm">
-          <h2 className="text-xl font-bold text-text-primary mb-4">
-            取材のご依頼・お問い合わせ
+      {/* コンタクトセクション（CTA） */}
+      <section className="bg-primary-green py-20">
+        <div className="max-w-[800px] mx-auto px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            あなたの想いを届けませんか？
           </h2>
-          <p className="text-sm text-text-primary mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white text-lg mb-8 leading-relaxed">
             月刊Singでは、東海地域で活躍する経営者・専門家の取材を募集しています。<br />
-            あなたの挑戦、想いを多くの人に届けませんか？
+            あなたの挑戦、想いを多くの人に届け、新しい出会いを創出しましょう。
           </p>
           <Link
             href="/contact"
-            className="inline-block px-14 py-4 bg-[#999999] text-white text-sm font-bold rounded-sm transition-all duration-300 hover:bg-primary-green hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(139,195,74,0.3)]"
+            className="inline-block px-12 py-4 bg-white text-primary-green text-base font-bold rounded-sm transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 hover:shadow-xl"
           >
             お問い合わせはこちら →
           </Link>
-        </section>
-
-      </div>
+        </div>
+      </section>
     </>
   )
 }

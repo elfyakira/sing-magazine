@@ -1,0 +1,25 @@
+/**
+ * 更新情報の型定義
+ */
+export type Update = {
+  date: string;
+  names: string[];
+}
+
+/**
+ * プロフィールカードの型定義
+ */
+export type Profile = {
+  name: string;
+  title: string;
+  organization?: string;
+}
+
+/**
+ * お知らせバナーの型定義
+ */
+export type Notice = {
+  date: string;
+  oldName: string;
+  newName: string;
+}
