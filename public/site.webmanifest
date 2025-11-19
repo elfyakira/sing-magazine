@@ -1,0 +1,21 @@
+{
+  "name": "月刊Sing",
+  "short_name": "月刊Sing",
+  "description": "地域の企業経営者や専門家への取材を通して、挑戦する人のリアルを伝える地域密着型ビジネス雑誌",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2d5f3f",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
