@@ -90,6 +90,22 @@
         "participantIds": [6],
         "image": "/img/no_image.png",
         "description": "多様性の時代に求められるリーダーシップとは。"
+      },
+      {
+        "id": 4,
+        "number": 4,
+        "title": "鋳物×ネジ製造 - 二つのモノづくりが語る「継承と挑戦」",
+        "participantIds": [15, 16],
+        "image": "/img/no_image.png",
+        "description": "老舗製造業の経営者二人が語る、安定と挑戦のバランス、若手人材の確保と育成。"
+      },
+      {
+        "id": 5,
+        "number": 5,
+        "title": "本物の安全は、数字や理論の先にある - 建築のプロが語る住まいづくり",
+        "participantIds": [17, 18],
+        "image": "/img/no_image.png",
+        "description": "災害現場の経験から学ぶ本当に安全な住まいとは。地域特性を理解した家づくりの重要性。"
       }
     ]
   },
