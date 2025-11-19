@@ -25,8 +25,7 @@
 *.pem
 
 # public assets (large files only)
-/public/*.mp4
-/public/**/*.mp4
+# 動画ファイルもコミット対象に含める
 
 # debug
 npm-debug.log*
