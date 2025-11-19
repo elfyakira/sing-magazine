@@ -40,24 +40,40 @@
     "sectionTitle": "更新情報",
     "items": [
       {
-        "date": "2025.10.01",
-        "personIds": [1]
+        "date": "2025.11.20",
+        "personIds": [8]
       },
       {
-        "date": "2025.09.01",
-        "personIds": [2]
+        "date": "2025.11.15",
+        "personIds": [7]
       },
       {
-        "date": "2025.08.01",
+        "date": "2025.11.10",
+        "personIds": [6]
+      },
+      {
+        "date": "2025.11.05",
+        "personIds": [5]
+      },
+      {
+        "date": "2025.11.01",
+        "personIds": [4]
+      },
+      {
+        "date": "2025.10.25",
         "personIds": [3]
       },
       {
-        "date": "2025.06.01",
-        "personIds": [4]
+        "date": "2025.10.20",
+        "personIds": [2]
+      },
+      {
+        "date": "2025.10.15",
+        "personIds": [1]
       }
     ]
   },
-  "featuredProfiles": [1, 2, 3, 4, 5, 6],
+  "featuredProfiles": [1, 2, 3, 4, 5, 6, 7, 8],
   "featuredInterviews": [1, 2, 3],
   "interviews": {
     "sectionTitle": "Interview",
@@ -70,40 +86,16 @@
       {
         "id": 1,
         "number": 1,
-        "title": "技術部門の先輩・後輩座談会",
-        "participantIds": [1, 2, 3],
-        "image": "/img/no_image.png",
-        "description": "技術革新を支える現場のリアルな声をお届けします。"
-      },
-      {
-        "id": 2,
-        "number": 2,
-        "title": "経営者対談：地域の未来を語る",
-        "participantIds": [4, 5],
-        "image": "/img/no_image.png",
-        "description": "地域経済を牽引する経営者たちが語る、これからのビジョン。"
-      },
-      {
-        "id": 3,
-        "number": 3,
-        "title": "女性リーダーが語るキャリアと挑戦",
-        "participantIds": [6],
-        "image": "/img/no_image.png",
-        "description": "多様性の時代に求められるリーダーシップとは。"
-      },
-      {
-        "id": 4,
-        "number": 4,
         "title": "鋳物×ネジ製造 - 二つのモノづくりが語る「継承と挑戦」",
-        "participantIds": [15, 16],
+        "participantIds": [4, 5],
         "image": "/img/no_image.png",
         "description": "老舗製造業の経営者二人が語る、安定と挑戦のバランス、若手人材の確保と育成。"
       },
       {
-        "id": 5,
-        "number": 5,
+        "id": 2,
+        "number": 2,
         "title": "本物の安全は、数字や理論の先にある - 建築のプロが語る住まいづくり",
-        "participantIds": [17, 18],
+        "participantIds": [6, 7],
         "image": "/img/no_image.png",
         "description": "災害現場の経験から学ぶ本当に安全な住まいとは。地域特性を理解した家づくりの重要性。"
       }
