@@ -24,8 +24,9 @@
 .DS_Store
 *.pem
 
-# public assets
-/public
+# public assets (large files only)
+/public/*.mp4
+/public/**/*.mp4
 
 # debug
 npm-debug.log*
