@@ -260,6 +260,114 @@
 
 ---
 
+## お問い合わせフォームのGoogle Forms設定
+
+お問い合わせページは現在、Google Formsと連携するように設計されています。以下の手順でGoogle Formsを設定してください。
+
+### 1. Google Formsの作成
+
+1. [Google Forms](https://forms.google.com/) にアクセス
+2. 「新しいフォームを作成」をクリック
+3. 以下のフィールドを作成：
+   - **お名前** （記述式、必須）
+   - **メールアドレス** （記述式、必須）
+   - **会社名・組織名** （記述式、任意）
+   - **電話番号** （記述式、任意）
+   - **お問い合わせカテゴリ** （プルダウン、必須）
+     - 選択肢: 取材記事掲載について / 広告掲載について / 月刊Singについて / その他のお問い合わせ
+   - **お問い合わせ内容** （段落、必須）
+
+### 2. フォームURLとentry番号の取得
+
+#### フォームURLの取得
+1. Google Formsの編集画面で「送信」ボタンをクリック
+2. URLをコピー（例: `https://docs.google.com/forms/d/e/xxxxx/viewform`）
+3. URLの `viewform` を `formResponse` に変更
+   - 変更前: `https://docs.google.com/forms/d/e/1FAIpQLSfy.../viewform`
+   - 変更後: `https://docs.google.com/forms/d/e/1FAIpQLSfy.../formResponse`
+
+#### entry番号の取得
+1. Google Formsの編集画面で「プレビュー」ボタン（目のアイコン）をクリック
+2. プレビュー画面で右クリック→「ページのソースを表示」
+3. `entry.` で検索し、各フィールドのentry番号を確認
+   - 例: `entry.179077895` → お名前のentry番号は `179077895`
+4. 各フィールドのentry番号をメモ
+
+### 3. app/contact/page.tsxの更新
+
+**ファイル:** `app/contact/page.tsx`
+
+#### 3-1. Google Forms URLを設定
+
+```typescript
+// 変更前
+const googleFormURL = 'GOOGLE_FORM_URL_HERE'
+
+// 変更後（実際のURLに置き換える）
+const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfy.../formResponse'
+```
+
+#### 3-2. entry番号を設定
+
+```typescript
+// 変更前
+formDataToSend.append('entry.XXXXXX', formData.name)
+formDataToSend.append('entry.XXXXXX', formData.email)
+formDataToSend.append('entry.XXXXXX', formData.company)
+formDataToSend.append('entry.XXXXXX', formData.phone)
+formDataToSend.append('entry.XXXXXX', formData.category)
+formDataToSend.append('entry.XXXXXX', formData.message)
+
+// 変更後（実際のentry番号に置き換える）
+formDataToSend.append('entry.179077895', formData.name)
+formDataToSend.append('entry.1749626015', formData.email)
+formDataToSend.append('entry.752550451', formData.company)
+formDataToSend.append('entry.1392739438', formData.phone)
+formDataToSend.append('entry.226672687', formData.category)
+formDataToSend.append('entry.2012956984', formData.message)
+```
+
+### 4. メールアドレスの更新
+
+お問い合わせ情報セクションに表示されるメールアドレスも更新してください。
+
+**ファイル:** `app/contact/page.tsx`
+
+```typescript
+// 変更前
+<a href="mailto:info@example.com" className="text-gray-700 hover:underline">
+  info@example.com
+</a>
+
+// 変更後（実際のメールアドレスに置き換える）
+<a href="mailto:contact@yourcompany.com" className="text-gray-700 hover:underline">
+  contact@yourcompany.com
+</a>
+```
+
+### 5. 動作確認
+
+1. 開発サーバーを起動: `npm run dev`
+2. `/contact` ページにアクセス
+3. テストデータを入力して送信
+4. Google Formsの「回答」タブで送信データが受信できているか確認
+
+### トラブルシューティング
+
+#### フォーム送信後、Google Formsに反映されない
+
+1. Google Forms URLが正しく設定されているか確認
+2. `formResponse` に変更されているか確認
+3. entry番号が正しいか再確認
+4. ブラウザのコンソールでエラーが出ていないか確認
+
+#### CORSエラーが表示される
+
+- `mode: 'no-cors'` が設定されているため、CORSエラーは表示されません
+- ただし、送信結果の確認はGoogle Formsの「回答」タブで行ってください
+
+---
+
 ## 問い合わせ
 
 不明な点がありましたら、開発チームにお問い合わせください。
