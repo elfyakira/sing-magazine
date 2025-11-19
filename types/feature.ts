@@ -10,8 +10,11 @@ export type Update = {
  * プロフィールカードの型定義
  */
 export type Profile = {
+  id: number;
   name: string;
   title: string;
+  catchphrase: string;
+  image: string;
   organization?: string;
 }
 

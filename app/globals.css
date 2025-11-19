@@ -52,3 +52,21 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #aaaaaa;
 }
+
+/* 無限スクロールアニメーション */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-306px * 11));
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 55s linear infinite;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}

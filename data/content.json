@@ -1,0 +1,116 @@
+{
+  "site": {
+    "name": "月刊Sing",
+    "company": "企業名A",
+    "description": "地域A・地域B・地域Cの企業経営者や専門家への取材を通して、挑戦する人のリアルを伝える地域密着型ビジネス雑誌",
+    "baseUrl": "https://example.com"
+  },
+  "navigation": [
+    {
+      "href": "/about",
+      "label": "月刊Singとは"
+    },
+    {
+      "href": "/interviews",
+      "label": "取材記事一覧"
+    },
+    {
+      "href": "/contact",
+      "label": "お問い合わせ"
+    }
+  ],
+  "hero": {
+    "title": "想いでつながる、未来を創る",
+    "subtitle": "東海の経営者・挑戦者を取材するビジネスマッチングメディア",
+    "desktopVideo": "/img/hero.mp4",
+    "mobileVideo": "/img/hero_mv.mp4"
+  },
+  "about": {
+    "title": "想いがあるから、\n出会える。",
+    "paragraphs": [
+      "ビジネスの原点は、いつの時代も「人」です。\nどんなに時代が変わっても、人の想いや情熱が\n企業を動かし、未来をつくっていく。",
+      "私たちは、そんな経営者やビジネスリーダーの\n声を届け、共感と信頼が交わる場所をつくりた\nいと考えています。",
+      "月刊Singは、\"出会い\"の先にある\"信頼\"を大\n切にし、人と企業、地域と未来をつなげるメデ\nィアでありたいと願っています。"
+    ]
+  },
+  "profileSection": {
+    "title": "取材記事一覧"
+  },
+  "updates": {
+    "sectionTitle": "更新情報",
+    "items": [
+      {
+        "date": "2025.10.01",
+        "personIds": [1]
+      },
+      {
+        "date": "2025.09.01",
+        "personIds": [2]
+      },
+      {
+        "date": "2025.08.01",
+        "personIds": [3]
+      },
+      {
+        "date": "2025.06.01",
+        "personIds": [4]
+      }
+    ]
+  },
+  "featuredProfiles": [1, 2, 3, 4, 5, 6],
+  "featuredInterviews": [1, 2, 3],
+  "interviews": {
+    "sectionTitle": "Interview",
+    "sectionSubtitle": "挑戦者たちの声"
+  },
+  "crosstalk": {
+    "sectionTitle": "Crosstalk",
+    "sectionSubtitle": "対談で語る、未来への想い",
+    "items": [
+      {
+        "id": 1,
+        "number": 1,
+        "title": "技術部門の先輩・後輩座談会",
+        "participantIds": [1, 2, 3],
+        "image": "/img/no_image.png",
+        "description": "技術革新を支える現場のリアルな声をお届けします。"
+      },
+      {
+        "id": 2,
+        "number": 2,
+        "title": "経営者対談：地域の未来を語る",
+        "participantIds": [4, 5],
+        "image": "/img/no_image.png",
+        "description": "地域経済を牽引する経営者たちが語る、これからのビジョン。"
+      },
+      {
+        "id": 3,
+        "number": 3,
+        "title": "女性リーダーが語るキャリアと挑戦",
+        "participantIds": [6],
+        "image": "/img/no_image.png",
+        "description": "多様性の時代に求められるリーダーシップとは。"
+      }
+    ]
+  },
+  "cta": {
+    "title": "あなたの想いを届けませんか？",
+    "description": "月刊Singでは、東海地域で活躍する経営者・専門家の取材を募集しています。\nあなたの挑戦、想いを多くの人に届け、新しい出会いを創出しましょう。",
+    "buttonText": "お問い合わせはこちら →",
+    "buttonLink": "/contact"
+  },
+  "regions": [
+    {
+      "@type": "State",
+      "name": "地域A"
+    },
+    {
+      "@type": "State",
+      "name": "地域B"
+    },
+    {
+      "@type": "State",
+      "name": "地域C"
+    }
+  ]
+}

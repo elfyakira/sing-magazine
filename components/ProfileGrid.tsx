@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Profile } from '@/types/feature'
 
 type ProfileGridProps = {
@@ -27,25 +28,27 @@ export default function ProfileGrid({
       </div>
       <div className={gridClass}>
         {profiles.map((profile, index) => (
-          <article
-            key={`${profile.name}-${index}`}
-            className="transition-all duration-300 hover:bg-gray-50"
-          >
-            <div className="py-3 border-l-4 border-green-500 pl-4">
-              <h3 className="font-bold text-black text-base mb-1">
-                {profile.name}
-              </h3>
-              {profile.title && (
-                <p className="text-sm text-gray-700">
-                  {profile.title}
-                </p>
-              )}
-              {profile.organization && (
-                <p className="text-xs text-gray-600 mt-1">
-                  {profile.organization}
-                </p>
-              )}
-            </div>
+          <article key={`${profile.name}-${index}`}>
+            <Link
+              href={`/interviews/${profile.id}`}
+              className="block transition-all duration-300 hover:bg-gray-50"
+            >
+              <div className="py-3 border-l-4 border-green-500 pl-4">
+                <h3 className="font-bold text-black text-base mb-1">
+                  {profile.name}
+                </h3>
+                {profile.title && (
+                  <p className="text-sm text-gray-700">
+                    {profile.title}
+                  </p>
+                )}
+                {profile.organization && (
+                  <p className="text-xs text-gray-600 mt-1">
+                    {profile.organization}
+                  </p>
+                )}
+              </div>
+            </Link>
           </article>
         ))}
       </div>
